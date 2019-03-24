@@ -60,7 +60,7 @@ public class RxViewActivity extends BaseActivity {
         addDisposable(RxView.longClicks(btnClick)
                 .subscribe(o -> {
                     Log.e("rx_binding_test", "longClicks");
-                    Toast.makeText(RxViewActivity.this, "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RxViewActivity.this, "Long click", Toast.LENGTH_SHORT).show();
                 }));
     }
 
