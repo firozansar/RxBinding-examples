@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn_rx_view, R.id.btn_rx_text_view, R.id.btn_rx_adapter_view, R.id.btn_rx_compound,
-            R.id.btn_count_down})
+            R.id.btn_count_down, R.id.btn_form_validation})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_rx_view:
@@ -47,6 +47,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_count_down:
                 startActivity(new Intent(this, CountDownActivity.class));
+                break;
+            case R.id.btn_form_validation:
+                startActivity(new Intent(this, FormValidationActivity.class));
                 break;
         }
     }

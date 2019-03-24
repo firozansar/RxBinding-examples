@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CountDownActivity"></activity>
+        <activity android:name=".FormValidationActivity"></activity>
+        <activity android:name=".CountDownActivity" />
         <activity android:name=".RxCompoundButtonActivity" />
         <activity android:name=".RxAdapterViewActivity" />
         <activity android:name=".RxTextViewActivity" />
