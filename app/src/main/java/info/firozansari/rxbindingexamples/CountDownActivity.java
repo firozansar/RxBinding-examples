@@ -35,11 +35,11 @@ public class CountDownActivity extends BaseActivity {
                             addDisposable(Flowable.intervalRange(0, 11, 0, 1, TimeUnit.SECONDS)
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .doOnNext(aLong -> {
-                                        RxTextView.text(btnGetCode).accept("Code(" + (10 - aLong) + ")");
+                                        RxTextView.text(btnGetCode).accept(" " + (10 - aLong) + " ");
                                     })
                                     .doOnComplete(() -> {
                                         RxView.enabled(btnGetCode).accept(true);
-                                        RxTextView.text(btnGetCode).accept("Code");
+                                        RxTextView.text(btnGetCode).accept("Done");
                                     })
                                     .subscribe());
                         }

@@ -43,7 +43,7 @@ public class RxTextViewActivity extends BaseActivity {
                 .map(CharSequence::toString)
                 .subscribe(s -> {
                     Log.e("rx_binding_test", "textChanges:etRxTextView:" + s);
-                    Toast.makeText(RxTextViewActivity.this, "etRxTextView", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RxTextViewActivity.this, s, Toast.LENGTH_SHORT).show();
                 }));
         //textChangeEvents
 //        addDisposable(RxTextView.textChangeEvents(etRxTextView)
@@ -61,7 +61,7 @@ public class RxTextViewActivity extends BaseActivity {
                 .subscribe(
                         textViewBeforeTextChangeEvent -> {
                             Log.e("rx_binding_test", "beforeTextChangeEvents:etRxTextView:" + textViewBeforeTextChangeEvent.text());
-                            Toast.makeText(RxTextViewActivity.this, "etRxTextView", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RxTextViewActivity.this, textViewBeforeTextChangeEvent.text(), Toast.LENGTH_SHORT).show();
                         }));
     }
 
@@ -69,7 +69,7 @@ public class RxTextViewActivity extends BaseActivity {
         addDisposable(RxTextView.afterTextChangeEvents(etRxTextView)
                 .subscribe(textViewAfterTextChangeEvent -> {
                     Log.e("rx_binding_test", "afterTextChangeEvents:etRxTextView");
-                    Toast.makeText(RxTextViewActivity.this, "etRxTextView", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RxTextViewActivity.this, textViewAfterTextChangeEvent.view().getText(), Toast.LENGTH_SHORT).show();
                 }));
     }
 
@@ -78,14 +78,14 @@ public class RxTextViewActivity extends BaseActivity {
         addDisposable(RxTextView.editorActions(etRxTextView)
                 .subscribe(integer -> {
                     Log.e("rx_binding_test", "editorActions::");
-                    Toast.makeText(RxTextViewActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RxTextViewActivity.this, "click no." + integer, Toast.LENGTH_SHORT).show();
                 }));
         addDisposable(RxTextView.editorActionEvents(etRxTextView)
                 .subscribe(textViewEditorActionEvent -> {
                     KeyEvent keyEvent = textViewEditorActionEvent.keyEvent();
                     if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_UP) {
                         Log.e("rx_binding_test", "editorActionEvents:" + textViewEditorActionEvent.keyEvent());
-                        Toast.makeText(RxTextViewActivity.this, "enter", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RxTextViewActivity.this, "Pressed enter", Toast.LENGTH_SHORT).show();
                     }
                 }));
     }

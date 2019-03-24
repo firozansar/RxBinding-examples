@@ -38,7 +38,7 @@ public class RxAdapterViewActivity extends BaseActivity {
     private void initData() {
         list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            list.add("Hello :" + i);
+            list.add("Hello : " + i);
         }
         //adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
@@ -59,7 +59,7 @@ public class RxAdapterViewActivity extends BaseActivity {
         addDisposable(RxAdapterView.itemLongClicks(lvList)
                 .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(integer -> Toast.makeText(RxAdapterViewActivity.this,
-                        "value" + integer + "：" + list.get(integer), Toast.LENGTH_SHORT).show()));
+                        "Long clicked " + list.get(integer), Toast.LENGTH_SHORT).show()));
 
     }
 
