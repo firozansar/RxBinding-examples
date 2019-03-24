@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">RxBinding Examples</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">RxBinding Examples</string>
     <string name="rxview">RxView</string>
     <string name="rxtextview">RxTextView</string>
     <string name="rxadapterview">RxAdapterView</string>
     <string name="rxcompoundbutton">RxCompoundButton</string>
     <string name="countdown">Countdown</string>
     <string name="get_code">Start countdown</string>
+    <string name="increment">Increment</string>
 </resources>

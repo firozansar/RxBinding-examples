@@ -3,6 +3,7 @@ package info.firozansari.rxbindingexamples;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
@@ -17,6 +18,12 @@ public class CountDownActivity extends BaseActivity {
 
     @BindView(R.id.btn_get_code)
     Button btnGetCode;
+
+    @BindView(R.id.increment_button)
+    Button incrementButton;
+
+    @BindView(R.id.my_text_view)
+    TextView myTextView;
 
     @Override
     protected int getLayoutId() {
@@ -45,5 +52,13 @@ public class CountDownActivity extends BaseActivity {
                         }
                 )
         );
+
+        //broadcast clicks into a cumulative increment, and display in TextView
+        addDisposable(RxView.clicks(incrementButton)
+                .map(o -> 1)
+                .scan(0,(total, next) -> total + next)
+                .subscribe(i -> myTextView.setText(i.toString())));
+
+
     }
 }
