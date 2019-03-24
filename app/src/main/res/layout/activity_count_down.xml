@@ -25,7 +25,11 @@
         android:id="@+id/my_text_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="" />
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:text="0" />
 
 
 </LinearLayout>
