@@ -38,17 +38,18 @@ public class CountDownActivity extends BaseActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(o -> RxView.enabled(btnGetCode).accept(false))
                 .subscribe(o -> {
+// TODO update the RxBinding library which might fix compilation error below
 
-                            addDisposable(Flowable.intervalRange(0, 11, 0, 1, TimeUnit.SECONDS)
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .doOnNext(aLong -> {
-                                        RxTextView.text(btnGetCode).accept(" " + (10 - aLong) + " ");
-                                    })
-                                    .doOnComplete(() -> {
-                                        RxView.enabled(btnGetCode).accept(true);
-                                        RxTextView.text(btnGetCode).accept("Done");
-                                    })
-                                    .subscribe());
+//                            addDisposable(Flowable.intervalRange(0, 11, 0, 1, TimeUnit.SECONDS)
+//                                    .observeOn(AndroidSchedulers.mainThread())
+//                                    .doOnNext(aLong -> {
+//                                        RxTextView.text(btnGetCode).accept(" " + (10 - aLong) + " ");
+//                                    })
+//                                    .doOnComplete(() -> {
+//                                        RxView.enabled(btnGetCode).accept(true);
+//                                        RxTextView.text(btnGetCode).accept("Done");
+//                                    })
+//                                    .subscribe());
                         }
                 )
         );
